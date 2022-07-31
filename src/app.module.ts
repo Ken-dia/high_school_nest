@@ -6,6 +6,7 @@ import { AppService } from './app.service';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { TestResolver } from './app.test.resolver';
+import { ClassroomModule } from './classroom/classroom.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { TestResolver } from './app.test.resolver';
       autoSchemaFile: 'schema.gql',
       driver: ApolloDriver,
     }),
+    ClassroomModule,
   ],
   controllers: [AppController],
   providers: [AppService, TestResolver],

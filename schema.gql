@@ -2,6 +2,22 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Classroom {
+  id: ID!
+  name: String!
+}
+
 type Query {
   FetchTest: String!
+  fetchClassrooms: [Classroom!]!
+  deteleClassroom(id: String!): Boolean!
+}
+
+type Mutation {
+  createClassroom(inputClassroom: ClassroomInput!): Classroom!
+  updateClassroom(id: String!, inputClassroom: ClassroomInput!): Classroom!
+}
+
+input ClassroomInput {
+  name: String!
 }
