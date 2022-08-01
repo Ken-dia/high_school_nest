@@ -7,17 +7,45 @@ type Classroom {
   name: String!
 }
 
+type Student {
+  id: ID!
+  nom: String!
+  prenom: String!
+  genre: String!
+  dateNaiss: DateTime!
+  lieuNaiss: String!
+  classroom: Classroom!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
 type Query {
   FetchTest: String!
   fetchClassrooms: [Classroom!]!
   deteleClassroom(id: String!): Boolean!
+  fetchStudents: [Student!]!
+  detelestudent(id: String!): Boolean!
 }
 
 type Mutation {
   createClassroom(inputClassroom: ClassroomInput!): Classroom!
   updateClassroom(id: String!, inputClassroom: ClassroomInput!): Classroom!
+  createStudent(inputStudent: StudentInput!): Student!
+  updatestudent(id: String!, inputStudent: StudentInput!): Student!
 }
 
 input ClassroomInput {
   name: String!
+}
+
+input StudentInput {
+  nom: String!
+  prenom: String!
+  genre: String!
+  dateNaiss: DateTime!
+  lieuNaiss: String!
+  classroom: ID!
 }

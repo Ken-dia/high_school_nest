@@ -4,7 +4,7 @@ import { ObjectId } from 'mongoose';
 
 @ObjectType()
 export class Classroom {
-  @Field(type => ID)
+  @Field((type) => ID)
   id: ObjectId;
 
   @Field()
